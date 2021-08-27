@@ -8,10 +8,10 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .site-brand-bar {
   height: 50px;
-  background-color: red;
+  background-color: #e4002b;
   width: 100%;
   /* padding: 0 var(--unit-gutter); */
 
@@ -24,5 +24,6 @@ export default {};
 
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 36px;
+  color: var(--color-white);
 }
 </style>

@@ -8,8 +8,8 @@ You can directly use them in pages and other components without the need to impo
 
 - `<AboutThis>` | `<about-this>` (components/AboutThis.vue)
 - `<BlockCard>` | `<block-card>` (components/BlockCard.vue)
-- `<Image>` | `<image>` (components/Image.vue)
 - `<ObjectDetail>` | `<object-detail>` (components/ObjectDetail.vue)
+- `<ObjectImage>` | `<object-image>` (components/ObjectImage.vue)
 - `<PrimaryFooter>` | `<primary-footer>` (components/PrimaryFooter.vue)
 - `<PrimaryHeader>` | `<primary-header>` (components/PrimaryHeader.vue)
 - `<TitleBlock>` | `<title-block>` (components/TitleBlock.vue)

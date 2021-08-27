@@ -1,5 +1,5 @@
 <template lang="html">
-  <footer class="footer-sock">
+  <footer class="primary-footer">
     <div class="container">
       <ul class="links">
         <li v-for="item in items" :key="item.text" class="item">
@@ -12,8 +12,9 @@
         </li>
       </ul>
 
-      <div class="regents">
-        &#169;{{ year }} Regents of the University of California
+      <div class="met-api">
+        {{ year }} Ashton Prigge Using the Met api Read more about the met api
+        here link to about the api, open access, collection search
       </div>
     </div>
   </footer>
@@ -37,8 +38,8 @@ export default {
 };
 </script>
 
-<style scoped>
-.footer-sock {
+<style lang="scss" scoped>
+.primary-footer {
   background-color: var(--color-white);
   padding: 0 var(--unit-gutter);
 
@@ -73,43 +74,10 @@ export default {
       line-height: 1.25;
       color: var(--color-black);
     }
-    .regents {
+    .met-api {
       color: var(--color-secondary-grey-04);
       margin: 15px 0;
     }
   }
-
-  /* // Hover states
-  @media #{$has-hover} {
-    &:hover {
-      .link:hover {
-        color: var(--color-primary-blue);
-      }
-    }
-  } */
-
-  /* // Breakpoints
-  @media #{$lte-tablet} {
-    padding-top: 40px;
-    padding-bottom: 40px;
-
-    .container {
-      display: block;
-
-      .links {
-        display: block;
-        margin: 0;
-      }
-      .item {
-        display: block;
-        line-height: 2em;
-      }
-
-      .regents {
-        display: block;
-        margin: 50px 0 0 0;
-      }
-    }
-  } */
 }
 </style>

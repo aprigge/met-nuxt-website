@@ -22,16 +22,12 @@ export default {
     alt: {
       type: String,
       default: ""
-    },
-    caption: {
-      type: String,
-      default: ""
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .image {
   -webkit-user-select: none;
   margin: auto;

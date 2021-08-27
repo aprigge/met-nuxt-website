@@ -19,12 +19,7 @@ export default {
     mode: "out-in"
   },
 
-  //TODO load scss
-  // css: [
-  //   "~/assets/styles/variables-css.scss",
-  //   "~/assets/styles/global.scss",
-  //   "~/assets/styles/fonts.css"
-  // ],
+  css: ["~/assets/styles/variables-css.scss", "~/assets/styles/global.scss"],
 
   /*
    ** Load SCSS into each component
@@ -32,7 +27,6 @@ export default {
   styleResources: {
     scss: ["~/assets/styles/variables-scss.scss"]
   },
-
   /*
    * Nuxt modules
    */

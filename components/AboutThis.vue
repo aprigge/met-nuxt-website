@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .about-this {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 20px;
