@@ -1,0 +1,107 @@
+ol,
+ul,
+li {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 400;
+    margin: 0;
+}
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 400ms ease-in-out;
+}
+button {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0;
+}
+::selection {
+    background: var(--color-primary-blue);
+    color: var(--color-white);
+}
+
+// Z-indexs
+.header-sticky {
+    z-index: 100;
+}
+.header-main {
+    z-index: 200;
+}
+
+// Page Structure
+.page {
+    .section {
+        margin: 100px auto;
+        padding-left: var(--unit-gutter);
+        padding-right: var(--unit-gutter);
+        max-width: 1300px;
+    }
+    .divider-first + .section {
+        margin-top: 75px;
+    }
+    .divider {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 var(--unit-gutter);
+        box-sizing: border-box;
+    }
+}
+
+// Animations
+.underline-hover {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0;
+        background-color: var(--color-primary-blue);
+        transition-property: width, opacity;
+        transition-duration: 400ms;
+        transition-timing-function: ease-in-out;
+        opacity: 0;
+    }
+    &:hover {
+        &::before {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+}
+
+// Generic Vue transitions
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 400ms ease-in-out;
+}
+.fade-enter,
+.fade-leave-active {
+    opacity: 0;
+}

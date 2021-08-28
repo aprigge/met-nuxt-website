@@ -5,11 +5,11 @@
   "BlockCard": {
     "description": "Auto imported from components/BlockCard.vue"
   },
-  "Image": {
-    "description": "Auto imported from components/Image.vue"
-  },
   "ObjectDetail": {
     "description": "Auto imported from components/ObjectDetail.vue"
+  },
+  "ObjectImage": {
+    "description": "Auto imported from components/ObjectImage.vue"
   },
   "PrimaryFooter": {
     "description": "Auto imported from components/PrimaryFooter.vue"

@@ -3,19 +3,30 @@
     <primary-header />
     <title-block
       title="Ashton Museum Object App"
-      text="Explanation about what this projec is"
+      text="Explanation about what this project is"
     />
-    <!-- TODO here make a component to pass in computed properties about this object -->
-    <about-this title="Ashton Museum Object App" :text="objectHighlight" />
-    <img :src="parsedImage" :width="156" :height="192" />
-    <block-card
-      v-for="(highlight, index) in objectHighlight"
-      v-if="highlight"
-      :key="index"
-      :title="index"
-      :text="highlight"
-      to="metmmuseum.org"
-    />
+    <div class="block-cards">
+      <block-card
+        :title="objectHighlight.title"
+        :text="objectHighlight.objectName"
+        :objectDate="objectHighlight.objectDate"
+        :to="parsedTo"
+        :src="parsedImage"
+      />
+      <block-card title="Here is the raw data" :text="objectHighlight" />
+      <block-card
+        :title="secondObjectHighlight.title"
+        :text="secondObjectHighlight.objectName"
+        :objectDate="secondObjectHighlight.objectDate"
+        :to="parsedSecondTo"
+        :src="secondObjectHighlight.primaryImage"
+      />
+      <block-card
+        title="Second group of raw data"
+        :text="secondObjectHighlight"
+      />
+    </div>
+    <primary-footer />
   </section>
 </template>
 
@@ -24,7 +35,7 @@ export default {
   data() {
     return {
       objectHighlight: {},
-      metPortraits: {}
+      secondObjectHighlight: {}
     };
   },
   async fetch() {
@@ -33,10 +44,11 @@ export default {
     );
     this.objectHighlight = objectHighlight;
 
-    const metPortraits = await this.$axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=portrait"
+    const secondObjectHighlight = await this.$axios.$get(
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/334245"
     );
-    this.metPortraits = metPortraits;
+    this.secondObjectHighlight = secondObjectHighlight;
+
     // take five of these and do object api queries on them
   },
   computed: {
@@ -51,18 +63,26 @@ export default {
       let date = this.objectHighlight["objectDate"];
       //do some formatting
       return date;
+    },
+    parsedTo() {
+      return `/${this.objectHighlight.objectID}`;
+    },
+    parsedSecondTo() {
+      return `/${this.secondObjectHighlight.objectID}`;
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .home-page {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  .block-cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
 }
 </style>

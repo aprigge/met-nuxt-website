@@ -1,8 +1,14 @@
 <template lang="html">
   <div class="block-card-vertical">
     <div class="meta">
-      <h3 class="title" v-html="title" />
-      <div class="text" v-html="text" />
+      <nuxt-link class="to" :to="to"
+        ><h3 class="title" v-html="title"
+      /></nuxt-link>
+      <object-image v-if="src" :src="src" :width="200" :height="300" />
+      <div class="details">
+        <div class="text" v-html="text" />
+        <div class="date" v-html="objectDate" />
+      </div>
     </div>
   </div>
 </template>
@@ -18,7 +24,15 @@ export default {
       type: String,
       default: ""
     },
+    objectDate: {
+      type: String,
+      default: ""
+    },
     to: {
+      type: String,
+      default: ""
+    },
+    src: {
       type: String,
       default: ""
     }
@@ -29,10 +43,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .block-card-vertical {
-  background-color: pink;
-
   font-family: "Helvetica", "Arial", sans-serif;
   display: flex;
   flex-direction: column;
@@ -41,17 +53,15 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 
-  border: 2px solid blue;
-  width: 300px;
-  height: 400px;
+  border: 2px solid var(--color-secondary-grey-01);
+  max-width: 1100px;
+  max-height: 600px;
   overflow: hidden;
   box-sizing: border-box;
   margin-left: 40px;
   margin-top: 10px;
-
-  transition-property: box-shadow, transform;
-  transition-duration: 400ms;
-  transition-timing-function: ease-in-out;
+  padding-left: 15px;
+  padding-right: 15px;
 
   .meta {
     transition: background-color 400ms ease-in-out;
@@ -69,6 +79,8 @@ export default {
     color: black;
     padding-right: 60px;
     padding-left: 60px;
+  }
+  .details {
   }
   .text {
     font-size: 16px;

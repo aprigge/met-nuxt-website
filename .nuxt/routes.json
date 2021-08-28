@@ -2,8 +2,21 @@
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/ashtonprigge/repos/project/pages/index.vue",
+    "component": "/Users/ashtonprigge/repos/met-collections-project/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_1c0dcf67"
+    "pathToRegexpOptions": {
+      "strict": true
+    },
+    "_name": "_1e86f7be"
+  },
+  {
+    "name": "slug",
+    "path": "/:slug",
+    "component": "/Users/ashtonprigge/repos/met-collections-project/pages/_slug.vue",
+    "chunkName": "pages/_slug",
+    "pathToRegexpOptions": {
+      "strict": true
+    },
+    "_name": "_1cd05676"
   }
 ]

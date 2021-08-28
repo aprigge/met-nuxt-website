@@ -20,9 +20,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .title-block {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 20px;
+  background-color: var(--color-secondary-grey-02);
+  min-height: 200px;
 }
 </style>
