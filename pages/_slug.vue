@@ -1,26 +1,24 @@
 <template lang="html">
-  <section class="home-page">
+  <section class="detail-page">
     <primary-header />
     <about-this text="Here is a more detailed look at this object" />
     <object-image :src="parsedImage" width="500" height="500" />
+
     <object-detail />
   </section>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      objectHighlight: {}
-    };
-  },
-  async fetch() {
-    const objectHighlight = await this.$axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/324290"
+  async asyncData({ params, $axios }) {
+    console.log(params.slug);
+    const objectHighlight = await $axios.$get(
+      `https://collectionapi.metmuseum.org/public/collection/v1/objects/${params.slug}`
     );
-    this.objectHighlight = objectHighlight;
-    // take five of these and do object api queries on them
+    console.log(objectHighlight);
+    return { objectHighlight };
   },
+
   computed: {
     // TODO need to massage data
     parsedObjectData() {

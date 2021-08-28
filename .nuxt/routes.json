@@ -4,6 +4,9 @@
     "path": "/",
     "component": "/Users/ashtonprigge/repos/met-collections-project/pages/index.vue",
     "chunkName": "pages/index",
+    "pathToRegexpOptions": {
+      "strict": true
+    },
     "_name": "_1e86f7be"
   },
   {
@@ -11,6 +14,9 @@
     "path": "/:slug",
     "component": "/Users/ashtonprigge/repos/met-collections-project/pages/_slug.vue",
     "chunkName": "pages/_slug",
+    "pathToRegexpOptions": {
+      "strict": true
+    },
     "_name": "_1cd05676"
   }
 ]

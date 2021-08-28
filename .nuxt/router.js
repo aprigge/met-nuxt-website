@@ -21,10 +21,12 @@ export const routerOptions = {
   routes: [{
     path: "/",
     component: _1e86f7be,
+    pathToRegexpOptions: {"strict":true},
     name: "index"
   }, {
     path: "/:slug",
     component: _1cd05676,
+    pathToRegexpOptions: {"strict":true},
     name: "slug"
   }],
 

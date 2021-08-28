@@ -15,6 +15,7 @@
 </template>
 
 <script>
+//JUst have it take the object from the api?
 export default {
   props: {
     title: {
