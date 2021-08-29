@@ -4,10 +4,18 @@
     <about-this text="Here is a more detailed look at this object" />
     <object-image :src="parsedImage" width="500" height="500" />
     <!-- TODO v-if additionalimages, object-image componenet -->
-
+    <object-image
+      v-if="objectHighlight.additionalImages[0]"
+      :src="objectHighlight.additionalImages[0]"
+      width="500"
+      height="500"
+    />
     <object-detail
-      :wiki="objectHighlight.Wikidata_URL"
+      :wiki="objectHighlight.artistWikidata_URL"
       :department="objectHighlight.department"
+      :title="objectHighlight.title"
+      :objectURL="objectHighlight.objectURL"
+      :artistDisplayName="objectHighlight.artistDisplayName"
     />
     <block-card :text="objectHighlight" />
   </section>

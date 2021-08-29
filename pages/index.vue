@@ -59,7 +59,7 @@ export default {
       return `/${this.objectHighlight.objectID}`;
     },
     parsedSecondTo(objectID) {
-      return `/${objectID}`;
+      return `/${this.secondObjectHighlight.objectID}`;
     },
     searchResultsList() {
       return this.searchResults.objectIDs.slice(0, 10);

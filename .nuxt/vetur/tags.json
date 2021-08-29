@@ -17,6 +17,9 @@
   "PrimaryHeader": {
     "description": "Auto imported from components/PrimaryHeader.vue"
   },
+  "SmartLink": {
+    "description": "Auto imported from components/SmartLink.vue"
+  },
   "TitleBlock": {
     "description": "Auto imported from components/TitleBlock.vue"
   }

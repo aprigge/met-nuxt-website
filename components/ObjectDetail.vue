@@ -6,9 +6,11 @@
       /></nuxt-link>
       <object-image v-if="src" :src="src" :width="200" :height="300" />
       <div class="details">
+        <div class="artistDisplayName" v-html="artistDisplayName" />
         <div class="department" v-html="department" />
         <div class="date" v-html="objectDate" />
-        <div class="wiki" v-html="wiki" />
+        <div v-if="wiki" class="wiki" v-html="wiki" />
+        <smart-link :to="objectURL" v-html="objectURL" />
       </div>
     </div>
   </div>
@@ -22,7 +24,16 @@ export default {
       type: String,
       default: "",
     },
-    departmenst: {
+    objectURL: {
+      type: String,
+      default: "",
+    },
+    artistDisplayName: {
+      type: String,
+      default: "",
+    },
+
+    department: {
       type: String,
       default: "",
     },
