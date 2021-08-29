@@ -3,7 +3,8 @@
     <primary-header />
     <title-block
       title="Ashton Museum Object App"
-      text="Explanation about what this project is"
+      text=" I build this project because wanted to highlight skills I haven’t nececarilly applied to other work projects.
+I was looking for interesting data sources and found the Met Museum had published a REST API."
     />
     <div class="block-cards">
       <block-card
@@ -20,6 +21,11 @@
         :to="parsedSecondTo"
         :src="secondObjectHighlight.primaryImage"
       />
+      <divider-general />
+      <block-card
+        title="Because of the Structure of the API, search queries only return a list of ids"
+        :text="searchResults"
+      />
       <block-card
         v-for="(object, index) in searchResultsList"
         :key="index"
@@ -28,7 +34,8 @@
         :to="`/${object}`"
       />
     </div>
-    <primary-footer items="[{"Met Museum": "metmuseum.org"}]" />
+    <divider-general class="divider-general" />
+    <primary-footer />
   </section>
 </template>
 
@@ -77,6 +84,11 @@ export default {
     justify-content: center;
     align-content: center;
     align-items: center;
+  }
+  .divider-general {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 </style>

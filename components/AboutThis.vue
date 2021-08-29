@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="about-this">
-    <div class="about-this" v-html="title"></div>
     <div class="text" v-html="text"></div>
   </div>
 </template>
@@ -10,13 +9,13 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     text: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 
@@ -24,5 +23,10 @@ export default {
 .about-this {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 20px;
+
+  .text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 </style>

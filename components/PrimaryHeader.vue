@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="site-brand-bar">
-    An Exploration of the Met Museum's Collection API
+    <nuxt-link class="title" to="/">
+      An Exploration of the Met Museum's Collection API
+    </nuxt-link>
   </div>
 </template>
 
@@ -10,7 +12,7 @@ export default {};
 
 <style lang="scss" scoped>
 .site-brand-bar {
-  height: 50px;
+  height: 100px;
   background-color: #e4002b;
   width: 100%;
   /* padding: 0 var(--unit-gutter); */
@@ -25,5 +27,10 @@ export default {};
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 36px;
   color: var(--color-white);
+
+  .title {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

@@ -17,7 +17,10 @@
       :objectURL="objectHighlight.objectURL"
       :artistDisplayName="objectHighlight.artistDisplayName"
     />
-    <block-card :text="objectHighlight" />
+    <json-detail
+      title="This is the JSON response for this object from the Met's API"
+      :response="objectHighlight"
+    />
   </section>
 </template>
 
@@ -51,10 +54,10 @@ export default {
 </script>
 
 <style scoped>
-.home-page {
+.detail-page {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;

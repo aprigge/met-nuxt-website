@@ -1,10 +1,10 @@
 <template lang="html">
-  <div class="block-card-vertical">
+  <div class="block-card">
+    <nuxt-link class="to" :to="to"
+      ><h3 class="title" v-html="title"
+    /></nuxt-link>
     <div class="meta">
-      <nuxt-link class="to" :to="to"
-        ><h3 class="title" v-html="title"
-      /></nuxt-link>
-      <object-image v-if="src" :src="src" :width="200" :height="300" />
+      <object-image v-if="src" :src="src" :width="500" :height="500" />
       <div class="details">
         <div class="text" v-html="text" />
         <div class="date" v-html="objectDate" />
@@ -18,25 +18,25 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     text: {
       type: String,
-      default: ""
+      default: "",
     },
     objectDate: {
       type: String,
-      default: ""
+      default: "",
     },
     to: {
       type: String,
-      default: ""
+      default: "",
     },
     src: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 
   // TODO add computed property, date for example, format
   // TODO make a util functions, things using over the apps
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.block-card-vertical {
+.block-card {
   font-family: "Helvetica", "Arial", sans-serif;
   display: flex;
   flex-direction: column;
@@ -52,10 +52,11 @@ export default {
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background-color: #f8f8f8;
 
   border: 2px solid var(--color-secondary-grey-01);
-  max-width: 1100px;
-  max-height: 600px;
+  width: 1100px;
+  max-height: 1000px;
   overflow: hidden;
   box-sizing: border-box;
   margin-left: 40px;
@@ -64,9 +65,11 @@ export default {
   padding-right: 15px;
 
   .meta {
-    transition: background-color 400ms ease-in-out;
-    background-color: white;
-    flex: 1 1 auto;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
   }
   .title {
     font-size: 24px;
@@ -82,15 +85,14 @@ export default {
   }
   .details {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .text {
     font-size: 16px;
     font-weight: normal;
     line-height: 150%;
-    text-align: center;
-    padding-left: 40px;
-    padding-right: 40px;
     color: black;
   }
 }

@@ -10,13 +10,13 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     text: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 
@@ -26,5 +26,12 @@ export default {
   font-size: 20px;
   background-color: var(--color-secondary-grey-02);
   min-height: 200px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  .title {
+  }
 }
 </style>

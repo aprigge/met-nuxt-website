@@ -5,6 +5,12 @@
   "BlockCard": {
     "description": "Auto imported from components/BlockCard.vue"
   },
+  "DividerGeneral": {
+    "description": "Auto imported from components/DividerGeneral.vue"
+  },
+  "JsonDetail": {
+    "description": "Auto imported from components/JsonDetail.vue"
+  },
   "ObjectDetail": {
     "description": "Auto imported from components/ObjectDetail.vue"
   },
