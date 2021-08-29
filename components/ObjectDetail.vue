@@ -9,7 +9,7 @@
         <div class="department" v-html="department" />
         <div class="date" v-html="objectDate" />
         <div v-if="wiki" class="wiki" v-html="wiki" />
-        <smart-link :to="objectURL" v-html="objectURL" />
+        <smart-link class="objectURL" :to="objectURL" v-html="objectURL" />
       </div>
     </div>
   </div>
@@ -72,7 +72,6 @@ export default {
   max-height: 600px;
   overflow: hidden;
   box-sizing: border-box;
-  margin-left: 40px;
   margin-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
@@ -109,6 +108,17 @@ export default {
     padding-left: 40px;
     padding-right: 40px;
     color: black;
+  }
+
+  // Hovers
+  @media #{$has-hover} {
+    &:hover {
+      .objectURL {
+        text-decoration: underline;
+        text-decoration-color: var(--color-default-cyan-base);
+        text-decoration-thickness: 1.5px;
+      }
+    }
   }
 }
 </style>

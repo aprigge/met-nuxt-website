@@ -95,5 +95,15 @@ export default {
     line-height: 150%;
     color: black;
   }
+
+  @media #{$has-hover} {
+    &:hover {
+      .title {
+        text-decoration: underline;
+        text-decoration-color: var(--color-default-cyan-base);
+        text-decoration-thickness: 1.5px;
+      }
+    }
+  }
 }
 </style>

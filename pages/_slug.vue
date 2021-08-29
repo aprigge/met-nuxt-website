@@ -1,22 +1,23 @@
 <template lang="html">
   <section class="detail-page">
     <primary-header />
-    <about-this text="Here is a more detailed look at this object" />
-    <object-image :src="parsedImage" width="500" height="500" />
-    <!-- TODO v-if additionalimages, object-image componenet -->
-    <object-image
-      v-if="objectHighlight.additionalImages[0]"
-      :src="objectHighlight.additionalImages[0]"
-      width="500"
-      height="500"
-    />
-    <object-detail
-      :wiki="objectHighlight.artistWikidata_URL"
-      :department="objectHighlight.department"
-      :title="objectHighlight.title"
-      :objectURL="objectHighlight.objectURL"
-      :artistDisplayName="objectHighlight.artistDisplayName"
-    />
+    <div class="images-details">
+      <object-image :src="parsedImage" width="500" height="500" />
+      <!-- TODO v-if additionalimages, object-image componenet -->
+      <object-image
+        v-if="objectHighlight.additionalImages[0]"
+        :src="objectHighlight.additionalImages[0]"
+        width="500"
+        height="500"
+      />
+      <object-detail
+        :wiki="objectHighlight.artistWikidata_URL"
+        :department="objectHighlight.department"
+        :title="objectHighlight.title"
+        :objectURL="objectHighlight.objectURL"
+        :artistDisplayName="objectHighlight.artistDisplayName"
+      />
+    </div>
     <json-detail
       title="This is the JSON response for this object from the Met's API"
       :response="objectHighlight"
@@ -53,7 +54,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .detail-page {
   display: flex;
   flex-wrap: wrap;
@@ -61,5 +62,11 @@ export default {
   justify-content: center;
   align-content: center;
   align-items: center;
+
+  .images-details {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+  }
 }
 </style>

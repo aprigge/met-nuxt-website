@@ -33,7 +33,7 @@ export default {
 
   border: 2px solid var(--color-secondary-grey-01);
   max-width: 1100px;
-  max-height: 600px;
+  max-height: 1000px;
   overflow: hidden;
   box-sizing: border-box;
   margin-left: 40px;
@@ -52,6 +52,7 @@ export default {
     padding-left: 60px;
   }
   .response {
+    padding: 10px 10px 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
