@@ -13,7 +13,6 @@
         :to="parsedTo"
         :src="parsedImage"
       />
-      <block-card title="Here is the raw data" :text="objectHighlight" />
       <block-card
         :title="secondObjectHighlight.title"
         :text="secondObjectHighlight.objectName"
@@ -22,35 +21,32 @@
         :src="secondObjectHighlight.primaryImage"
       />
       <block-card
-        title="Second group of raw data"
-        :text="secondObjectHighlight"
+        v-for="(object, index) in searchResultsList"
+        :key="index"
+        text="Another object id"
+        :title="object"
+        :to="`/${object}`"
       />
     </div>
-    <primary-footer />
+    <primary-footer items="[{"Met Museum": "metmuseum.org"}]" />
   </section>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      objectHighlight: {},
-      secondObjectHighlight: {}
-    };
-  },
-  async fetch() {
-    const objectHighlight = await this.$axios.$get(
+  async asyncData({ $axios }) {
+    const objectHighlight = await $axios.$get(
       "https://collectionapi.metmuseum.org/public/collection/v1/objects/324290"
     );
-    this.objectHighlight = objectHighlight;
-
-    const secondObjectHighlight = await this.$axios.$get(
+    const secondObjectHighlight = await $axios.$get(
       "https://collectionapi.metmuseum.org/public/collection/v1/objects/334245"
     );
-    this.secondObjectHighlight = secondObjectHighlight;
-
-    // take five of these and do object api queries on them
+    const searchResults = await $axios.$get(
+      "https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=picasso"
+    );
+    return { objectHighlight, secondObjectHighlight, searchResults };
   },
+
   computed: {
     isHighlight() {
       return this.objectHighlight["isHighlight"];
@@ -59,18 +55,16 @@ export default {
       return this.objectHighlight["primaryImage"];
       //compute if there is a primary image, add text and a link>
     },
-    parsedDate() {
-      let date = this.objectHighlight["objectDate"];
-      //do some formatting
-      return date;
-    },
     parsedTo() {
       return `/${this.objectHighlight.objectID}`;
     },
-    parsedSecondTo() {
-      return `/${this.secondObjectHighlight.objectID}`;
-    }
-  }
+    parsedSecondTo(objectID) {
+      return `/${objectID}`;
+    },
+    searchResultsList() {
+      return this.searchResults.objectIDs.slice(0, 10);
+    },
+  },
 };
 </script>
 

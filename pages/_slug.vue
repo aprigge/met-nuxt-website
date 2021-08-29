@@ -3,19 +3,22 @@
     <primary-header />
     <about-this text="Here is a more detailed look at this object" />
     <object-image :src="parsedImage" width="500" height="500" />
+    <!-- TODO v-if additionalimages, object-image componenet -->
 
-    <object-detail />
+    <object-detail
+      :wiki="objectHighlight.Wikidata_URL"
+      :department="objectHighlight.department"
+    />
+    <block-card :text="objectHighlight" />
   </section>
 </template>
 
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    console.log(params.slug);
     const objectHighlight = await $axios.$get(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${params.slug}`
     );
-    console.log(objectHighlight);
     return { objectHighlight };
   },
 
@@ -26,7 +29,6 @@ export default {
     },
     parsedImage() {
       return this.objectHighlight["primaryImage"];
-      //compute if there is a primary image, add text and a link>
     },
     parsedDate() {
       let date = this.objectHighlight["objectDate"];
@@ -35,8 +37,8 @@ export default {
     },
     parsedWikidataUrl() {
       return this.objectHighlight["Wikidata_URL"];
-    }
-  }
+    },
+  },
 };
 </script>
 

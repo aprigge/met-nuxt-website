@@ -6,9 +6,9 @@
       /></nuxt-link>
       <object-image v-if="src" :src="src" :width="200" :height="300" />
       <div class="details">
-        <div class="text" v-html="text" />
+        <div class="department" v-html="department" />
         <div class="date" v-html="objectDate" />
-        <div class="wiki" v-html="wikiurl" />
+        <div class="wiki" v-html="wiki" />
       </div>
     </div>
   </div>
@@ -20,29 +20,29 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
-    text: {
+    departmenst: {
       type: String,
-      default: ""
+      default: "",
     },
     objectDate: {
       type: String,
-      default: ""
+      default: "",
     },
     to: {
       type: String,
-      default: ""
+      default: "",
     },
     wiki: {
       type: String,
-      default: ""
+      default: "",
     },
     src: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 

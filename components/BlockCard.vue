@@ -81,6 +81,8 @@ export default {
     padding-left: 60px;
   }
   .details {
+    display: flex;
+    flex-direction: row;
   }
   .text {
     font-size: 16px;
