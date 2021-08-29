@@ -12,12 +12,12 @@ export default {
       default: "",
     },
     height: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "",
     },
     width: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "",
     },
     alt: {
       type: String,

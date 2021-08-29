@@ -3,7 +3,6 @@
     <primary-header />
     <div class="images-details">
       <object-image :src="parsedImage" width="500" height="500" />
-      <!-- TODO v-if additionalimages, object-image componenet -->
       <object-image
         v-if="objectHighlight.additionalImages[0]"
         :src="objectHighlight.additionalImages[0]"
@@ -16,12 +15,15 @@
         :title="objectHighlight.title"
         :objectURL="objectHighlight.objectURL"
         :artistDisplayName="objectHighlight.artistDisplayName"
+        :medium="objectHighlight.medium"
       />
     </div>
+    <divider-general class="divider-general" />
     <json-detail
       title="This is the JSON response for this object from the Met's API"
       :response="objectHighlight"
     />
+    <primary-footer />
   </section>
 </template>
 
@@ -35,10 +37,6 @@ export default {
   },
 
   computed: {
-    // TODO need to massage data
-    parsedObjectData() {
-      return objectHighlight;
-    },
     parsedImage() {
       return this.objectHighlight["primaryImage"];
     },
@@ -46,9 +44,6 @@ export default {
       let date = this.objectHighlight["objectDate"];
       //do some formatting
       return date;
-    },
-    parsedWikidataUrl() {
-      return this.objectHighlight["Wikidata_URL"];
     },
   },
 };
@@ -67,6 +62,10 @@ export default {
     padding: 20px 20px 20px 20px;
     display: flex;
     flex-direction: row;
+  }
+
+  .divider-general {
+    width: 100%;
   }
 }
 </style>

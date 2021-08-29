@@ -22,14 +22,14 @@ I was looking for interesting data sources and found the Met Museum had publishe
         :src="secondObjectHighlight.primaryImage"
       />
       <divider-general />
-      <block-card
+      <json-detail
         title="Because of the Structure of the API, search queries only return a list of ids"
-        :text="searchResults"
+        :response="searchResults"
       />
       <block-card
         v-for="(object, index) in searchResultsList"
         :key="index"
-        text="Another object id"
+        text="Met Museum Object ID"
         :title="object"
         :to="`/${object}`"
       />
@@ -70,6 +70,9 @@ export default {
     },
     searchResultsList() {
       return this.searchResults.objectIDs.slice(0, 10);
+    },
+    parsedObjectTo(object) {
+      return `/${this.object}`;
     },
   },
 };

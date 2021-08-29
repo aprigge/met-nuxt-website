@@ -7,6 +7,7 @@
       <div class="details">
         <div class="artistDisplayName" v-html="artistDisplayName" />
         <div class="department" v-html="department" />
+        <div class="medium" v-html="medium" />
         <div class="date" v-html="objectDate" />
         <div v-if="wiki" class="wiki" v-html="wiki" />
         <smart-link class="objectURL" :to="objectURL" v-html="objectURL" />
@@ -31,7 +32,10 @@ export default {
       type: String,
       default: "",
     },
-
+    medium: {
+      type: String,
+      default: "",
+    },
     department: {
       type: String,
       default: "",
@@ -68,11 +72,11 @@ export default {
   background-color: #f8f8f8;
 
   border: 2px solid var(--color-secondary-grey-01);
-  max-width: 1100px;
-  max-height: 600px;
+  width: 500px;
+  height: 500px;
   overflow: hidden;
   box-sizing: border-box;
-  margin-top: 10px;
+  margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
 

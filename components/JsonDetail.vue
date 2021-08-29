@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="json-detail">
     <h3 class="title" v-html="title" />
-    <div class="response" v-html="response"></div>
+    <pre class="response" v-html="response"></pre>
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
 
   border: 2px solid var(--color-secondary-grey-01);
   max-width: 1100px;
-  max-height: 1000px;
+  max-height: 100%;
   overflow: hidden;
   box-sizing: border-box;
   margin-left: 40px;
