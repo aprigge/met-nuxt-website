@@ -53,5 +53,9 @@ export default {
   .page {
     flex: 1 1 auto;
   }
+
+  .footer {
+    margin-top: 15px;
+  }
 }
 </style>

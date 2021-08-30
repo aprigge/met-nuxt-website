@@ -38,7 +38,6 @@
         />
       </div>
     </div>
-    <divider-general class="divider-general" />
   </section>
 </template>
 
@@ -117,12 +116,9 @@ export default {
     margin-left: var(--unit-gutter);
   }
   .divider-general {
-    width: 100%;
+    width: 90%;
     padding-top: 10px;
     padding-bottom: 10px;
-  }
-  .footer {
-    margin-top: 15px;
   }
 }
 </style>
