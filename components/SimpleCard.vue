@@ -28,7 +28,7 @@ export default {
 .simple-card {
   font-family: var(--font-primary);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-content: center;
   align-items: center;

@@ -3,9 +3,18 @@
     <primary-header />
     <masthead-secondary title="About this Project" />
     <title-block
-      title="Ashton Museum Object App"
+      title="What"
       text="I built this project because wanted to highlight skills I haven’t nececarilly applied to other work projects.
-            I was looking for interesting data sources and found the Met Museum had published a REST API."
+            "
+    />
+    <title-block
+      title="Why"
+      text="I have an Art History degree and have always been interested in Humanities data. I was looking for interesting data sources and found the Met Museum had published a REST API."
+    />
+    <title-block title="How" text="Nuxt App" />
+    <title-block
+      title="Next Steps"
+      text="So many features I would love to build!"
     />
     <divider-general class="divider-general" />
     <primary-footer class="footer" :items="footerPrimaryItems" />

@@ -1,7 +1,7 @@
 <template lang="html">
   <section class="home-page">
     <primary-header />
-    <masthead-secondary title="An assortment of Objects" />
+    <masthead-secondary title="Objects from the Met Museum's Collection" />
     <div class="block-cards">
       <block-card
         :title="objectHighlight.title"

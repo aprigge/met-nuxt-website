@@ -12,7 +12,7 @@
         <nuxt-link class="to" :to="to"
           ><h3 class="title" v-html="title"
         /></nuxt-link>
-        <div class="artistDisplayName" v-html="artistDisplayName" />
+        <div class="artist" v-html="artistDisplayName" />
         <div class="department" v-html="department" />
         <div class="medium" v-html="medium" />
         <div class="date" v-html="objectDate" />
@@ -118,19 +118,31 @@ export default {
     font-weight: 700;
     margin-top: 35px;
     margin-bottom: 10px;
-    color: black;
+    color: var(--color-primary-darkest-blue);
     padding-right: 60px;
     padding-left: 60px;
   }
 
-  .text {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 150%;
+  .title {
+    font-size: 24px;
     text-align: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    color: black;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    color: var(--color-primary-darkest-blue);
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .artist {
+    font-size: 20px;
+    color: var(--color-gray-03);
+    margin-bottom: 10px;
+  }
+  .department,
+  .medium {
+    font-size: 18px;
+    color: var(--color-grey-02);
+    margin-bottom: 10px;
   }
 
   @media #{$has-hover} {

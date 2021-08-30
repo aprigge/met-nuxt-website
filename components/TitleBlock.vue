@@ -25,16 +25,22 @@ export default {
   margin-top: 75px;
   margin-left: 80px;
   margin-right: 80px;
-  font-family: var(--font-primary);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.01em;
   text-align: left;
-  line-height: 32px;
 
   .title {
+    font-size: 36px;
+    font-weight: 500;
+    font-family: var(--font-primary);
+  }
+  .text {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+
+    line-height: 32px;
   }
 }
 </style>

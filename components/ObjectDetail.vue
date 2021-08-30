@@ -1,21 +1,20 @@
 <template lang="html">
   <div class="object-detail">
-    <div class="meta">
-      <h3 class="title" v-html="title" />
-      <div class="details">
-        <div class="artistDisplayName" v-html="artistDisplayName" />
-        <div class="department" v-html="department" />
-        <div class="medium" v-html="medium" />
-        <div class="date" v-html="objectDate" />
-        <div v-if="wiki" class="wiki" v-html="wiki" />
+    <h3 class="title" v-html="title" />
+    <div class="details">
+      <div class="artist" v-html="artistDisplayName" />
+      <div class="medium" v-html="medium" />
+      <div class="date" v-html="objectDate" />
+      <div class="department" v-html="department" />
+      <div class="urls">
         <smart-link class="objectURL" :to="objectURL" v-html="objectURL" />
+        <smart-link class="objectURL" :to="wiki" v-html="wiki" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-//JUst have it take the object from the api?
 export default {
   props: {
     title: {
@@ -60,16 +59,16 @@ export default {
 
 <style lang="scss" scoped>
 .object-detail {
-  font-family: var(--font-primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #f8f8f8;
 
-  border: 2px solid var(--color-secondary-grey-01);
+  font-family: var(--font-primary);
+  background-color: var(--color-primary-lightest-blue);
+  border: 2px solid var(--color-primary-lightest-blue);
   width: 500px;
   height: 500px;
   overflow: hidden;
@@ -78,23 +77,6 @@ export default {
   padding-left: 15px;
   padding-right: 15px;
 
-  .header {
-    font-size: 28px;
-    font-weight: 500;
-  }
-
-  .meta {
-  }
-  .title {
-    font-size: 24px;
-    text-align: center;
-    font-weight: 700;
-    margin-top: 35px;
-    margin-bottom: 10px;
-    color: black;
-    padding-right: 60px;
-    padding-left: 60px;
-  }
   .details {
     display: flex;
     flex-direction: column;
@@ -102,14 +84,34 @@ export default {
     align-content: center;
     align-items: center;
   }
-  .text {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 150%;
+  .title {
+    font-size: 24px;
     text-align: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    color: black;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    color: var(--color-primary-darkest-blue);
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .artist {
+    font-size: 20px;
+    color: var(--color-gray-03);
+    margin-bottom: 10px;
+  }
+  .department,
+  .medium {
+    font-size: 18px;
+    color: var(--color-grey-02);
+    margin-bottom: 10px;
+  }
+  .urls {
+    margin-top: 50px;
+    font-size: 14px;
+    color: var(--color-grey-01);
+
+    display: flex;
+    flex-direction: column;
   }
 
   // Hovers

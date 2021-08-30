@@ -4,12 +4,12 @@
     <masthead-secondary title="Object Details" />
     <div class="meta">
       <div class="images-details">
-        <object-image :src="parsedImage" width="500" height="500" />
+        <object-image :src="parsedImage" width="400" height="400" />
         <object-image
           v-if="objectHighlight.additionalImages[0]"
           :src="objectHighlight.additionalImages[0]"
-          width="500"
-          height="500"
+          width="400"
+          height="400"
         />
         <object-detail
           :wiki="objectHighlight.artistWikidata_URL"
@@ -87,6 +87,8 @@ export default {
 
   .images-details {
     padding: 20px 20px 20px 20px;
+    margin-left: var(--unit-gutter);
+    margin-right: var(--unit-gutter);
     display: flex;
     flex-direction: row;
   }
