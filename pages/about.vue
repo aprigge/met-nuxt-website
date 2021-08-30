@@ -1,6 +1,5 @@
 <template lang="html">
   <section class="about-page">
-    <primary-header />
     <masthead-secondary title="About this Project" />
     <text-block
       title="What"
@@ -17,35 +16,11 @@
       text="So many features I would love to build!"
     />
     <divider-general class="divider-general" />
-    <primary-footer class="footer" :items="footerPrimaryItems" />
   </section>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      footerPrimaryItems: [
-        {
-          text: "Met Museum API Documentation",
-          to: "https://metmuseum.github.io/",
-          target: "_blank",
-        },
-        {
-          text: "API Endpoint",
-          to:
-            "https://collectionapi.metmuseum.org/public/collection/v1/objects",
-          target: "_blank",
-        },
-        {
-          text: "Met Museum Collections",
-          to: "https://www.metmuseum.org/art/collection",
-          target: "_blank",
-        },
-      ],
-    };
-  },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>

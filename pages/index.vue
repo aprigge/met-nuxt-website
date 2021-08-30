@@ -1,6 +1,5 @@
 <template lang="html">
   <section class="home-page">
-    <primary-header />
     <masthead-secondary title="Objects from the Met Museum's Collection" />
     <div class="block-cards">
       <block-card
@@ -21,7 +20,7 @@
         :title="thirdObjectHighlight.title"
         :artistDisplayName="thirdObjectHighlight.artistDisplayName"
         :objectDate="thirdObjectHighlight.objectDate"
-        :to="parsedSecondTo"
+        :to="parsedThirdTo"
         :src="thirdObjectHighlight.primaryImage"
       />
       <divider-general class="divider-general" />
@@ -40,43 +39,20 @@
       </div>
     </div>
     <divider-general class="divider-general" />
-    <primary-footer class="footer" :items="footerPrimaryItems" />
   </section>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      footerPrimaryItems: [
-        {
-          text: "Met Museum API Documentation",
-          to: "https://metmuseum.github.io/",
-          target: "_blank",
-        },
-        {
-          text: "API Endpoint",
-          to:
-            "https://collectionapi.metmuseum.org/public/collection/v1/objects",
-          target: "_blank",
-        },
-        {
-          text: "Met Museum Collections",
-          to: "https://www.metmuseum.org/art/collection",
-          target: "_blank",
-        },
-      ],
-    };
-  },
   async asyncData({ $axios }) {
     const objectHighlight = await $axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/466190"
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/340070"
     );
     const secondObjectHighlight = await $axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/671052"
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/437397"
     );
     const thirdObjectHighlight = await $axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/470309"
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/247993"
     );
     const searchResults = await $axios.$get(
       "https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=picasso"
@@ -99,8 +75,11 @@ export default {
     parsedTo() {
       return `/${this.objectHighlight.objectID}`;
     },
-    parsedSecondTo(objectID) {
+    parsedSecondTo() {
       return `/${this.secondObjectHighlight.objectID}`;
+    },
+    parsedThirdTo() {
+      return `/${this.thirdObjectHighlight.objectID}`;
     },
     searchResultsList() {
       return this.searchResults.objectIDs.slice(0, 10);

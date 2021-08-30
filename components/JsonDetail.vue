@@ -54,14 +54,16 @@ export default {
   }
   .response {
     padding: 10px 10px 10px 10px;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
+    flex-wrap: wrap;
     font-size: 16px;
     font-weight: normal;
-    line-height: 150%;
+
     color: black;
   }
 }

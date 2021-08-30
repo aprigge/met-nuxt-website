@@ -1,6 +1,5 @@
 <template lang="html">
   <section class="detail-page">
-    <primary-header />
     <masthead-secondary title="Object Details" />
     <div class="meta">
       <div class="images-details">
@@ -26,34 +25,11 @@
         :response="objectHighlight"
       />
     </div>
-    <primary-footer class="footer" :items="footerPrimaryItems" />
   </section>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      footerPrimaryItems: [
-        {
-          text: "Met Museum API Documentation",
-          to: "https://metmuseum.github.io/",
-          target: "_blank",
-        },
-        {
-          text: "API Endpoint",
-          to:
-            "https://collectionapi.metmuseum.org/public/collection/v1/objects",
-          target: "_blank",
-        },
-        {
-          text: "Met Museum Collections",
-          to: "https://www.metmuseum.org/art/collection",
-          target: "_blank",
-        },
-      ],
-    };
-  },
   async asyncData({ params, $axios }) {
     const objectHighlight = await $axios.$get(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${params.slug}`
