@@ -26,25 +26,25 @@ export default {
     items: {
       // Mock: api.links
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     year() {
       const current_year = new Date().getFullYear();
       return current_year;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .primary-footer {
-  background-color: var(--color-white);
+  background-color: var(--color-primary-lightest-blue);
   padding: 0 var(--unit-gutter);
 
   .container {
-    max-width: var(--unit-content-width);
+    max-width: 100%;
     min-height: 89px;
 
     display: flex;

@@ -3,7 +3,6 @@
     <div class="header">Object Details</div>
     <div class="meta">
       <h3 class="title" v-html="title" />
-      <object-image v-if="src" :src="src" :width="200" :height="300" />
       <div class="details">
         <div class="artistDisplayName" v-html="artistDisplayName" />
         <div class="department" v-html="department" />
@@ -62,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 .object-detail {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: var(--font-primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,12 +115,10 @@ export default {
 
   // Hovers
   @media #{$has-hover} {
-    &:hover {
-      .objectURL {
-        text-decoration: underline;
-        text-decoration-color: var(--color-default-cyan-base);
-        text-decoration-thickness: 1.5px;
-      }
+    .objectURL:hover {
+      text-decoration: underline;
+      text-decoration-color: black;
+      text-decoration-thickness: 1.5px;
     }
   }
 }

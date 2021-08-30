@@ -56,6 +56,10 @@
     --unit-center-column-max: 930px;
     --unit-center-text-max: 830px;
 
+    // Fonts
+    --font-primary: "Karbon", sans-serif;
+    --font-secondary: "proxima-nova", sans-serif;
+
 
     // Borders
     // top-left | top-right | bottom-right | bottom-left
@@ -89,5 +93,5 @@
         rgba(15, 15, 15, 0.65) 100%
     );
 
-    
+
 }

@@ -1,7 +1,4 @@
 {
-  "AboutThis": {
-    "description": "Auto imported from components/AboutThis.vue"
-  },
   "BlockCard": {
     "description": "Auto imported from components/BlockCard.vue"
   },
@@ -10,6 +7,9 @@
   },
   "JsonDetail": {
     "description": "Auto imported from components/JsonDetail.vue"
+  },
+  "MastheadSecondary": {
+    "description": "Auto imported from components/MastheadSecondary.vue"
   },
   "ObjectDetail": {
     "description": "Auto imported from components/ObjectDetail.vue"

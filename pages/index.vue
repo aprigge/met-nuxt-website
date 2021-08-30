@@ -1,16 +1,14 @@
 <template lang="html">
   <section class="home-page">
     <primary-header />
-    <title-block
-      title="Ashton Museum Object App"
-      text=" I build this project because wanted to highlight skills I haven’t nececarilly applied to other work projects.
-I was looking for interesting data sources and found the Met Museum had published a REST API."
-    />
+    <masthead-secondary title="An assortment of Objects" />
     <div class="block-cards">
       <block-card
         :title="objectHighlight.title"
         :text="objectHighlight.objectName"
         :objectDate="objectHighlight.objectDate"
+        :department="objectHighlight.department"
+        :medium="objectHighlight.medium"
         :to="parsedTo"
         :src="parsedImage"
       />
@@ -24,7 +22,7 @@ I was looking for interesting data sources and found the Met Museum had publishe
       <divider-general />
       <json-detail
         title="Because of the Structure of the API, search queries only return a list of ids"
-        :response="searchResults"
+        :response="searchResultsList"
       />
       <block-card
         v-for="(object, index) in searchResultsList"
@@ -60,7 +58,6 @@ export default {
     },
     parsedImage() {
       return this.objectHighlight["primaryImage"];
-      //compute if there is a primary image, add text and a link>
     },
     parsedTo() {
       return `/${this.objectHighlight.objectID}`;
@@ -80,6 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 .home-page {
+  max-width: 100%;
   .block-cards {
     display: flex;
     flex-wrap: wrap;

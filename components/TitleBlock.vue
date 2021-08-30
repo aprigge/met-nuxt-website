@@ -22,14 +22,17 @@ export default {
 
 <style lang="scss" scoped>
 .title-block {
-  font-family: "Helvetica", "Arial", sans-serif;
+  margin-top: 75px;
+  margin-left: 80px;
+  margin-right: 80px;
+  font-family: var(--font-primary);
   font-size: 20px;
-  background-color: var(--color-secondary-grey-02);
-  min-height: 200px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  line-height: 32px;
 
   .title {
   }

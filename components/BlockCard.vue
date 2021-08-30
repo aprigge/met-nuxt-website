@@ -1,26 +1,42 @@
 <template lang="html">
   <div class="block-card">
-    <nuxt-link class="to" :to="to"
-      ><h3 class="title" v-html="title"
-    /></nuxt-link>
     <div class="meta">
-      <object-image v-if="src" :src="src" :width="500" :height="500" />
+      <nuxt-link class="to" :to="to"
+        ><h3 class="title" v-html="title"
+      /></nuxt-link>
+      <object-image v-if="src" :src="src" :width="200" :height="300" />
       <div class="details">
-        <div class="text" v-html="text" />
+        <div class="artistDisplayName" v-html="artistDisplayName" />
+        <div class="department" v-html="department" />
+        <div class="medium" v-html="medium" />
         <div class="date" v-html="objectDate" />
+        <div v-if="wiki" class="wiki" v-html="wiki" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+//JUst have it take the object from the api?
 export default {
   props: {
     title: {
       type: String,
       default: "",
     },
-    text: {
+    objectURL: {
+      type: String,
+      default: "",
+    },
+    artistDisplayName: {
+      type: String,
+      default: "",
+    },
+    medium: {
+      type: String,
+      default: "",
+    },
+    department: {
       type: String,
       default: "",
     },
@@ -32,51 +48,41 @@ export default {
       type: String,
       default: "",
     },
+    wiki: {
+      type: String,
+      default: "",
+    },
     src: {
       type: String,
       default: "",
     },
   },
-
-  // TODO add computed property, date for example, format
-  // TODO make a util functions, things using over the apps
 };
 </script>
 
 <style lang="scss" scoped>
 .block-card {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: var(--font-primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #f8f8f8;
+  background-color: var(--color-secondary-grey-02);
 
   border: 2px solid var(--color-secondary-grey-01);
   width: 1100px;
-  max-height: 1000px;
+  max-height: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  margin-left: 40px;
-  margin-top: 10px;
+  margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
-
-  .meta {
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-  }
   .title {
     font-size: 24px;
-    line-height: 110%;
     text-align: center;
-    letter-spacing: 0.01em;
-    font-weight: 500;
+    font-weight: 700;
     margin-top: 35px;
     margin-bottom: 10px;
     color: black;
@@ -86,23 +92,25 @@ export default {
   .details {
     display: flex;
     flex-direction: column;
-    padding-left: 40px;
-    padding-right: 40px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
   .text {
     font-size: 16px;
     font-weight: normal;
     line-height: 150%;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
     color: black;
   }
 
   @media #{$has-hover} {
-    &:hover {
-      .title {
-        text-decoration: underline;
-        text-decoration-color: var(--color-default-cyan-base);
-        text-decoration-thickness: 1.5px;
-      }
+    .title:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--color-default-cyan-lightest);
+      text-decoration-thickness: 2.5px;
     }
   }
 }

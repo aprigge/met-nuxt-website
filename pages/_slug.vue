@@ -1,28 +1,30 @@
 <template lang="html">
   <section class="detail-page">
     <primary-header />
-    <div class="images-details">
-      <object-image :src="parsedImage" width="500" height="500" />
-      <object-image
-        v-if="objectHighlight.additionalImages[0]"
-        :src="objectHighlight.additionalImages[0]"
-        width="500"
-        height="500"
-      />
-      <object-detail
-        :wiki="objectHighlight.artistWikidata_URL"
-        :department="objectHighlight.department"
-        :title="objectHighlight.title"
-        :objectURL="objectHighlight.objectURL"
-        :artistDisplayName="objectHighlight.artistDisplayName"
-        :medium="objectHighlight.medium"
+    <div class="meta">
+      <div class="images-details">
+        <object-image :src="parsedImage" width="500" height="500" />
+        <object-image
+          v-if="objectHighlight.additionalImages[0]"
+          :src="objectHighlight.additionalImages[0]"
+          width="500"
+          height="500"
+        />
+        <object-detail
+          :wiki="objectHighlight.artistWikidata_URL"
+          :department="objectHighlight.department"
+          :title="objectHighlight.title"
+          :objectURL="objectHighlight.objectURL"
+          :artistDisplayName="objectHighlight.artistDisplayName"
+          :medium="objectHighlight.medium"
+        />
+      </div>
+      <divider-general class="divider-general" />
+      <json-detail
+        title="This is the JSON response for this object from the Met's API"
+        :response="objectHighlight"
       />
     </div>
-    <divider-general class="divider-general" />
-    <json-detail
-      title="This is the JSON response for this object from the Met's API"
-      :response="objectHighlight"
-    />
     <primary-footer />
   </section>
 </template>
@@ -51,12 +53,14 @@ export default {
 
 <style lang="scss" scoped>
 .detail-page {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
 
   .images-details {
     padding: 20px 20px 20px 20px;
