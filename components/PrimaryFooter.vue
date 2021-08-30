@@ -12,10 +12,7 @@
         </li>
       </ul>
 
-      <div class="met-api">
-        {{ year }} Ashton Prigge Using the Met api Read more about the met api
-        here link to about the api, open access, collection search
-      </div>
+      <div class="met-api">{{ year }} Ashton Prigge</div>
     </div>
   </footer>
 </template>
@@ -24,27 +21,26 @@
 export default {
   props: {
     items: {
-      // Mock: api.links
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     year() {
       const current_year = new Date().getFullYear();
       return current_year;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .primary-footer {
-  background-color: var(--color-white);
+  background-color: var(--color-primary-lightest-blue);
   padding: 0 var(--unit-gutter);
 
   .container {
-    max-width: var(--unit-content-width);
+    max-width: 100%;
     min-height: 89px;
 
     display: flex;

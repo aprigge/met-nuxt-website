@@ -1,9 +1,15 @@
 {
-  "AboutThis": {
-    "description": "Auto imported from components/AboutThis.vue"
-  },
   "BlockCard": {
     "description": "Auto imported from components/BlockCard.vue"
+  },
+  "DividerGeneral": {
+    "description": "Auto imported from components/DividerGeneral.vue"
+  },
+  "JsonDetail": {
+    "description": "Auto imported from components/JsonDetail.vue"
+  },
+  "MastheadSecondary": {
+    "description": "Auto imported from components/MastheadSecondary.vue"
   },
   "ObjectDetail": {
     "description": "Auto imported from components/ObjectDetail.vue"
@@ -16,6 +22,12 @@
   },
   "PrimaryHeader": {
     "description": "Auto imported from components/PrimaryHeader.vue"
+  },
+  "SimpleCard": {
+    "description": "Auto imported from components/SimpleCard.vue"
+  },
+  "SmartLink": {
+    "description": "Auto imported from components/SmartLink.vue"
   },
   "TitleBlock": {
     "description": "Auto imported from components/TitleBlock.vue"

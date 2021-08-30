@@ -1,51 +1,74 @@
 <template lang="html">
-  <div class="block-card-vertical">
+  <div class="block-card">
     <div class="meta">
-      <nuxt-link class="to" :to="to"
-        ><h3 class="title" v-html="title"
-      /></nuxt-link>
-      <object-image v-if="src" :src="src" :width="200" :height="300" />
+      <object-image
+        class="image"
+        v-if="src"
+        :src="src"
+        :width="500"
+        :height="500"
+      />
       <div class="details">
-        <div class="text" v-html="text" />
+        <nuxt-link class="to" :to="to"
+          ><h3 class="title" v-html="title"
+        /></nuxt-link>
+        <div class="artist" v-html="artistDisplayName" />
+        <div class="department" v-html="department" />
+        <div class="medium" v-html="medium" />
         <div class="date" v-html="objectDate" />
+        <div v-if="wiki" class="wiki" v-html="wiki" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+//JUst have it take the object from the api?
 export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
-    text: {
+    objectURL: {
       type: String,
-      default: ""
+      default: "",
+    },
+    artistDisplayName: {
+      type: String,
+      default: "",
+    },
+    medium: {
+      type: String,
+      default: "",
+    },
+    department: {
+      type: String,
+      default: "",
     },
     objectDate: {
       type: String,
-      default: ""
+      default: "",
     },
     to: {
       type: String,
-      default: ""
+      default: "",
+    },
+    wiki: {
+      type: String,
+      default: "",
     },
     src: {
       type: String,
-      default: ""
-    }
-  }
-
-  // TODO add computed property, date for example, format
-  // TODO make a util functions, things using over the apps
+      default: "",
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.block-card-vertical {
-  font-family: "Helvetica", "Arial", sans-serif;
+.block-card {
+  font-family: var(--font-primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,43 +76,81 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 
-  border: 2px solid var(--color-secondary-grey-01);
-  max-width: 1100px;
-  max-height: 600px;
+  width: 1100px;
+  max-height: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  margin-left: 40px;
-  margin-top: 10px;
+  margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-top: 20px;
+  border-radius: var(--rounded-slightly-all);
 
   .meta {
-    transition: background-color 400ms ease-in-out;
-    background-color: white;
-    flex: 1 1 auto;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+  }
+  .image {
+    width: 50%;
+    padding-right: 15px;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    width: 50%;
+    height: 500px;
+    background-color: var(--color-primary-lightest-blue);
+    border: 2px solid var(--color-primary-lightest-blue);
   }
   .title {
     font-size: 24px;
-    line-height: 110%;
     text-align: center;
-    letter-spacing: 0.01em;
-    font-weight: 500;
+    font-weight: 700;
     margin-top: 35px;
     margin-bottom: 10px;
-    color: black;
+    color: var(--color-primary-darkest-blue);
     padding-right: 60px;
     padding-left: 60px;
   }
-  .details {
-  }
-  .text {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 150%;
+
+  .title {
+    font-size: 24px;
     text-align: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    color: black;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    color: var(--color-primary-darkest-blue);
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .artist {
+    font-size: 20px;
+    color: var(--color-gray-03);
+    margin-bottom: 10px;
+  }
+  .department,
+  .medium {
+    font-size: 18px;
+    color: var(--color-grey-02);
+    margin-bottom: 10px;
+  }
+
+  @media #{$has-hover} {
+    .title:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--color-primary-blue);
+      text-decoration-thickness: 2.5px;
+    }
   }
 }
 </style>

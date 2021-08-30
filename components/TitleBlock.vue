@@ -10,21 +10,37 @@ export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     text: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .title-block {
-  font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 20px;
-  background-color: var(--color-secondary-grey-02);
-  min-height: 200px;
+  margin-top: 75px;
+  margin-left: 80px;
+  margin-right: 80px;
+  text-align: left;
+
+  .title {
+    font-size: 36px;
+    font-weight: 500;
+    font-family: var(--font-primary);
+  }
+  .text {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+
+    line-height: 32px;
+  }
 }
 </style>

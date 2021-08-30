@@ -1,54 +1,64 @@
 <template lang="html">
   <div class="object-detail">
-    <div class="meta">
-      <nuxt-link class="to" :to="to"
-        ><h3 class="title" v-html="title"
-      /></nuxt-link>
-      <object-image v-if="src" :src="src" :width="200" :height="300" />
-      <div class="details">
-        <div class="text" v-html="text" />
-        <div class="date" v-html="objectDate" />
-        <div class="wiki" v-html="wikiurl" />
+    <h3 class="title" v-html="title" />
+    <div class="details">
+      <div class="artist" v-html="artistDisplayName" />
+      <div class="medium" v-html="medium" />
+      <div class="date" v-html="objectDate" />
+      <div class="department" v-html="department" />
+      <div class="urls">
+        <smart-link class="objectURL" :to="objectURL" v-html="objectURL" />
+        <smart-link class="objectURL" :to="wiki" v-html="wiki" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-//JUst have it take the object from the api?
 export default {
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
-    text: {
+    objectURL: {
       type: String,
-      default: ""
+      default: "",
+    },
+    artistDisplayName: {
+      type: String,
+      default: "",
+    },
+    medium: {
+      type: String,
+      default: "",
+    },
+    department: {
+      type: String,
+      default: "",
     },
     objectDate: {
       type: String,
-      default: ""
+      default: "",
     },
     to: {
       type: String,
-      default: ""
+      default: "",
     },
     wiki: {
       type: String,
-      default: ""
+      default: "",
     },
     src: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .object-detail {
-  font-family: "Helvetica", "Arial", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,43 +66,61 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 
-  border: 2px solid var(--color-secondary-grey-01);
-  max-width: 1100px;
-  max-height: 600px;
+  font-family: var(--font-primary);
+  background-color: var(--color-primary-lightest-blue);
+  border: 2px solid var(--color-primary-lightest-blue);
+  width: 500px;
+  height: 500px;
   overflow: hidden;
   box-sizing: border-box;
-  margin-left: 40px;
-  margin-top: 10px;
+  margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
 
-  .meta {
-    transition: background-color 400ms ease-in-out;
-    background-color: white;
-    flex: 1 1 auto;
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
   .title {
     font-size: 24px;
-    line-height: 110%;
     text-align: center;
-    letter-spacing: 0.01em;
-    font-weight: 500;
+    font-weight: 700;
     margin-top: 35px;
     margin-bottom: 10px;
-    color: black;
+    color: var(--color-primary-darkest-blue);
     padding-right: 60px;
     padding-left: 60px;
   }
-  .details {
+  .artist {
+    font-size: 20px;
+    color: var(--color-gray-03);
+    margin-bottom: 10px;
   }
-  .text {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 150%;
-    text-align: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    color: black;
+  .department,
+  .medium {
+    font-size: 18px;
+    color: var(--color-grey-02);
+    margin-bottom: 10px;
+  }
+  .urls {
+    margin-top: 50px;
+    font-size: 14px;
+    color: var(--color-grey-01);
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Hovers
+  @media #{$has-hover} {
+    .objectURL:hover {
+      text-decoration: underline;
+      text-decoration-color: black;
+      text-decoration-thickness: 1.5px;
+    }
   }
 }
 </style>

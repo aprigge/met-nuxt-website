@@ -1,52 +1,104 @@
 <template lang="html">
   <section class="detail-page">
     <primary-header />
-    <about-this text="Here is a more detailed look at this object" />
-    <object-image :src="parsedImage" width="500" height="500" />
-
-    <object-detail />
+    <masthead-secondary title="Object Details" />
+    <div class="meta">
+      <div class="images-details">
+        <object-image :src="parsedImage" width="400" height="400" />
+        <object-image
+          v-if="objectHighlight.additionalImages[0]"
+          :src="objectHighlight.additionalImages[0]"
+          width="400"
+          height="400"
+        />
+        <object-detail
+          :wiki="objectHighlight.artistWikidata_URL"
+          :department="objectHighlight.department"
+          :title="objectHighlight.title"
+          :objectURL="objectHighlight.objectURL"
+          :artistDisplayName="objectHighlight.artistDisplayName"
+          :medium="objectHighlight.medium"
+        />
+      </div>
+      <divider-general class="divider-general" />
+      <json-detail
+        title="This is the JSON response for this object from the Met's API"
+        :response="objectHighlight"
+      />
+    </div>
+    <primary-footer class="footer" :items="footerPrimaryItems" />
   </section>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      footerPrimaryItems: [
+        {
+          text: "Met Museum API Documentation",
+          to: "https://metmuseum.github.io/",
+          target: "_blank",
+        },
+        {
+          text: "API Endpoint",
+          to:
+            "https://collectionapi.metmuseum.org/public/collection/v1/objects",
+          target: "_blank",
+        },
+        {
+          text: "Met Museum Collections",
+          to: "https://www.metmuseum.org/art/collection",
+          target: "_blank",
+        },
+      ],
+    };
+  },
   async asyncData({ params, $axios }) {
-    console.log(params.slug);
     const objectHighlight = await $axios.$get(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${params.slug}`
     );
-    console.log(objectHighlight);
     return { objectHighlight };
   },
 
   computed: {
-    // TODO need to massage data
-    parsedObjectData() {
-      return objectHighlight;
-    },
     parsedImage() {
       return this.objectHighlight["primaryImage"];
-      //compute if there is a primary image, add text and a link>
     },
     parsedDate() {
       let date = this.objectHighlight["objectDate"];
       //do some formatting
       return date;
     },
-    parsedWikidataUrl() {
-      return this.objectHighlight["Wikidata_URL"];
-    }
-  }
+  },
 };
 </script>
 
-<style scoped>
-.home-page {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+<style lang="scss" scoped>
+.detail-page {
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .images-details {
+    padding: 20px 20px 20px 20px;
+    margin-left: var(--unit-gutter);
+    margin-right: var(--unit-gutter);
+    display: flex;
+    flex-direction: row;
+  }
+
+  .divider-general {
+    width: 100%;
+  }
+
+  .footer {
+    margin-top: 15px;
+  }
 }
 </style>

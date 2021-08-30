@@ -11,23 +11,24 @@ export default {
    ** Load SCSS into each component
    */
   styleResources: {
-    scss: ["~/assets/styles/variables-scss.scss"]
+    scss: ["~/assets/styles/variables-scss.scss"],
   },
 
   // /*
   //  * Axios. Used for Libcal query.
   //  */
   axios: {
-    baseURL: "https://collectionapi.metmuseum.org/public/collection/v1/objects/"
+    baseURL:
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/",
   },
-
+  buildModules: ["@nuxtjs/style-resources"],
   /*
    ** Nuxt generate configuration. Used when generating a static site.
    */
   generate: {
     fallback: "404.html",
     interval: 500,
-    concurrency: 500
+    concurrency: 500,
   },
 
   /*
@@ -35,7 +36,7 @@ export default {
    */
   pageTransition: {
     name: "fade",
-    mode: "out-in"
+    mode: "out-in",
   },
 
   /*
@@ -43,15 +44,15 @@ export default {
    ** See: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-loading
    */
   loading: {
-    color: "#0b6ab7",
-    height: "3px"
+    color: "#e4002b",
+    height: "3px",
   },
 
   /*
    ** Nuxt router configuration. Used to define settingg for the router.
    */
   router: {
-    trailingSlash: false
+    trailingSlash: false,
   },
 
   /*
@@ -67,33 +68,33 @@ export default {
         values: [
           {
             name: "White",
-            value: "#ffffff"
+            value: "#ffffff",
           },
           {
             name: "Grey",
-            value: "#F2F2F2"
+            value: "#F2F2F2",
           },
           {
             name: "Dark blue",
-            value: "#032D5B"
+            value: "#032D5B",
           },
           {
             name: "Blue",
-            value: "#0B6AB7"
+            value: "#0B6AB7",
           },
           {
             name: "Light blue",
-            value: "#EAF2FB"
-          }
-        ]
-      }
+            value: "#EAF2FB",
+          },
+        ],
+      },
     },
     webpackFinal(config, { configDir }) {
       // Allow webpack to auto-load .gql and .svg files
       config.resolve.extensions.push(".svg", ".gql");
 
       return config;
-    }
+    },
   },
 
   /*
@@ -107,7 +108,9 @@ export default {
   build: {
     extend(config, ctx) {
       // Remove SVG from default Nuxt webpack rules, add back in rule without SVGs
-      const svgRule = config.module.rules.find(rule => rule.test.test(".svg"));
+      const svgRule = config.module.rules.find((rule) =>
+        rule.test.test(".svg")
+      );
       svgRule.test = /\.(png|jpe?g|gif|webp)$/i;
 
       // Add custom loading of SVGs as Vue components
@@ -124,28 +127,28 @@ export default {
               {
                 loader: "vue-svg-loader",
                 options: {
-                  svgo: false
-                }
-              }
-            ]
+                  svgo: false,
+                },
+              },
+            ],
           },
           {
             // ?url on import will give base64 encoded SVG.
             // Good for use in CSS.
             resourceQuery: /url/,
-            use: ["url-loader"]
+            use: ["url-loader"],
           },
           {
             // Default SVG loader, custom SVGO options
             loader: "vue-svg-loader",
             options: {
               svgo: {
-                plugins: [{ removeViewBox: false }]
-              }
-            }
-          }
-        ]
+                plugins: [{ removeViewBox: false }],
+              },
+            },
+          },
+        ],
       });
-    }
-  }
+    },
+  },
 };

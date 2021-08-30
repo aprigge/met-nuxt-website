@@ -1,5 +1,15 @@
 [
   {
+    "name": "about",
+    "path": "/about",
+    "component": "/Users/ashtonprigge/repos/met-collections-project/pages/about.vue",
+    "chunkName": "pages/about",
+    "pathToRegexpOptions": {
+      "strict": true
+    },
+    "_name": "_0261c60e"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/ashtonprigge/repos/met-collections-project/pages/index.vue",

@@ -9,21 +9,21 @@ export default {
   props: {
     src: {
       type: String,
-      default: ""
+      default: "",
     },
     height: {
-      type: Number,
-      default: 0
+      type: String,
+      default: "",
     },
     width: {
-      type: Number,
-      default: 0
+      type: String,
+      default: "",
     },
     alt: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 
@@ -31,7 +31,5 @@ export default {
 .image {
   -webkit-user-select: none;
   margin: auto;
-  cursor: zoom-in;
-  transition: background-color 300ms;
 }
 </style>
