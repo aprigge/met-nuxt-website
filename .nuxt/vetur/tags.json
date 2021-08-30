@@ -29,7 +29,7 @@
   "SmartLink": {
     "description": "Auto imported from components/SmartLink.vue"
   },
-  "TitleBlock": {
-    "description": "Auto imported from components/TitleBlock.vue"
+  "TextBlock": {
+    "description": "Auto imported from components/TextBlock.vue"
   }
 }

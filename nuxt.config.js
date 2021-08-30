@@ -44,7 +44,7 @@ export default {
    ** See: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-loading
    */
   loading: {
-    color: "#e4002b",
+    color: "#0b6ab7",
     height: "3px",
   },
 

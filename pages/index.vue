@@ -5,21 +5,26 @@
     <div class="block-cards">
       <block-card
         :title="objectHighlight.title"
-        :text="objectHighlight.objectName"
+        :artistDisplayName="objectHighlight.artistDisplayName"
         :objectDate="objectHighlight.objectDate"
-        :department="objectHighlight.department"
-        :medium="objectHighlight.medium"
         :to="parsedTo"
         :src="parsedImage"
       />
       <block-card
         :title="secondObjectHighlight.title"
-        :text="secondObjectHighlight.objectName"
+        :artistDisplayName="secondObjectHighlight.artistDisplayName"
         :objectDate="secondObjectHighlight.objectDate"
         :to="parsedSecondTo"
         :src="secondObjectHighlight.primaryImage"
       />
-      <divider-general />
+      <block-card
+        :title="thirdObjectHighlight.title"
+        :artistDisplayName="thirdObjectHighlight.artistDisplayName"
+        :objectDate="thirdObjectHighlight.objectDate"
+        :to="parsedSecondTo"
+        :src="thirdObjectHighlight.primaryImage"
+      />
+      <divider-general class="divider-general" />
       <json-detail
         title="Because of the Structure of the API, search queries only return a list of ids"
         :response="searchResultsList"
@@ -65,15 +70,23 @@ export default {
   },
   async asyncData({ $axios }) {
     const objectHighlight = await $axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/324290"
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/466190"
     );
     const secondObjectHighlight = await $axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/334245"
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/671052"
+    );
+    const thirdObjectHighlight = await $axios.$get(
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/470309"
     );
     const searchResults = await $axios.$get(
       "https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=picasso"
     );
-    return { objectHighlight, secondObjectHighlight, searchResults };
+    return {
+      objectHighlight,
+      secondObjectHighlight,
+      thirdObjectHighlight,
+      searchResults,
+    };
   },
 
   computed: {
