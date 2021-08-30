@@ -24,21 +24,45 @@
         title="Because of the Structure of the API, search queries only return a list of ids"
         :response="searchResultsList"
       />
-      <block-card
-        v-for="(object, index) in searchResultsList"
-        :key="index"
-        text="Met Museum Object ID"
-        :title="object"
-        :to="`/${object}`"
-      />
+      <div class="simple-cards">
+        <simple-card
+          v-for="(object, index) in searchResultsList"
+          :key="index"
+          text="Met Museum Object ID"
+          :title="object"
+          :to="`/${object}`"
+        />
+      </div>
     </div>
     <divider-general class="divider-general" />
-    <primary-footer />
+    <primary-footer class="footer" :items="footerPrimaryItems" />
   </section>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      footerPrimaryItems: [
+        {
+          text: "Met Museum API Documentation",
+          to: "https://metmuseum.github.io/",
+          target: "_blank",
+        },
+        {
+          text: "API Endpoint",
+          to:
+            "https://collectionapi.metmuseum.org/public/collection/v1/objects",
+          target: "_blank",
+        },
+        {
+          text: "Met Museum Collections",
+          to: "https://www.metmuseum.org/art/collection",
+          target: "_blank",
+        },
+      ],
+    };
+  },
   async asyncData({ $axios }) {
     const objectHighlight = await $axios.$get(
       "https://collectionapi.metmuseum.org/public/collection/v1/objects/324290"
@@ -78,6 +102,10 @@ export default {
 <style lang="scss" scoped>
 .home-page {
   max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
   .block-cards {
     display: flex;
     flex-wrap: wrap;
@@ -85,11 +113,24 @@ export default {
     justify-content: center;
     align-content: center;
     align-items: center;
+    margin-top: 20px;
+  }
+  .simple-cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+
+    margin-left: var(--unit-gutter);
   }
   .divider-general {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+  .footer {
+    margin-top: 15px;
   }
 }
 </style>

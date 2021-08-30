@@ -74,7 +74,9 @@ export default {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+
     .title {
+      text-transform: uppercase;
       font-size: 80px;
       line-height: 100%;
       letter-spacing: 0.01em;

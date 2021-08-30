@@ -14,5 +14,6 @@ You can directly use them in pages and other components without the need to impo
 - `<ObjectImage>` | `<object-image>` (components/ObjectImage.vue)
 - `<PrimaryFooter>` | `<primary-footer>` (components/PrimaryFooter.vue)
 - `<PrimaryHeader>` | `<primary-header>` (components/PrimaryHeader.vue)
+- `<SimpleCard>` | `<simple-card>` (components/SimpleCard.vue)
 - `<SmartLink>` | `<smart-link>` (components/SmartLink.vue)
 - `<TitleBlock>` | `<title-block>` (components/TitleBlock.vue)

@@ -1,11 +1,17 @@
 <template lang="html">
   <div class="block-card">
     <div class="meta">
-      <nuxt-link class="to" :to="to"
-        ><h3 class="title" v-html="title"
-      /></nuxt-link>
-      <object-image v-if="src" :src="src" :width="200" :height="300" />
+      <object-image
+        class="image"
+        v-if="src"
+        :src="src"
+        :width="500"
+        :height="500"
+      />
       <div class="details">
+        <nuxt-link class="to" :to="to"
+          ><h3 class="title" v-html="title"
+        /></nuxt-link>
         <div class="artistDisplayName" v-html="artistDisplayName" />
         <div class="department" v-html="department" />
         <div class="medium" v-html="medium" />
@@ -69,9 +75,7 @@ export default {
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--color-secondary-grey-02);
 
-  border: 2px solid var(--color-secondary-grey-01);
   width: 1100px;
   max-height: 100%;
   overflow: hidden;
@@ -79,6 +83,35 @@ export default {
   margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-top: 20px;
+  border-radius: var(--rounded-slightly-all);
+
+  .meta {
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+  }
+  .image {
+    width: 50%;
+    padding-right: 15px;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    width: 50%;
+    height: 500px;
+    background-color: var(--color-primary-lightest-blue);
+    border: 2px solid var(--color-primary-lightest-blue);
+  }
   .title {
     font-size: 24px;
     text-align: center;
@@ -89,13 +122,7 @@ export default {
     padding-right: 60px;
     padding-left: 60px;
   }
-  .details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
+
   .text {
     font-size: 16px;
     font-weight: normal;
@@ -109,7 +136,7 @@ export default {
   @media #{$has-hover} {
     .title:hover {
       text-decoration: underline;
-      text-decoration-color: var(--color-default-cyan-lightest);
+      text-decoration-color: var(--color-primary-blue);
       text-decoration-thickness: 2.5px;
     }
   }

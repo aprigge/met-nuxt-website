@@ -8,11 +8,36 @@
             I was looking for interesting data sources and found the Met Museum had published a REST API."
     />
     <divider-general class="divider-general" />
-    <primary-footer />
+    <primary-footer class="footer" :items="footerPrimaryItems" />
   </section>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      footerPrimaryItems: [
+        {
+          text: "Met Museum API Documentation",
+          to: "https://metmuseum.github.io/",
+          target: "_blank",
+        },
+        {
+          text: "API Endpoint",
+          to:
+            "https://collectionapi.metmuseum.org/public/collection/v1/objects",
+          target: "_blank",
+        },
+        {
+          text: "Met Museum Collections",
+          to: "https://www.metmuseum.org/art/collection",
+          target: "_blank",
+        },
+      ],
+    };
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .about-page {
@@ -28,6 +53,9 @@
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+  .footer {
+    margin-top: 15px;
   }
 }
 </style>

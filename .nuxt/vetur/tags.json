@@ -23,6 +23,9 @@
   "PrimaryHeader": {
     "description": "Auto imported from components/PrimaryHeader.vue"
   },
+  "SimpleCard": {
+    "description": "Auto imported from components/SimpleCard.vue"
+  },
   "SmartLink": {
     "description": "Auto imported from components/SmartLink.vue"
   },

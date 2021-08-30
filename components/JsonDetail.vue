@@ -30,6 +30,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   background-color: #f8f8f8;
+  border-radius: var(--rounded-slightly-all);
 
   border: 2px solid var(--color-secondary-grey-01);
   max-width: 1100px;

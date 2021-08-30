@@ -12,10 +12,7 @@
         </li>
       </ul>
 
-      <div class="met-api">
-        {{ year }} Ashton Prigge Using the Met api Read more about the met api
-        here link to about the api, open access, collection search
-      </div>
+      <div class="met-api">{{ year }} Ashton Prigge</div>
     </div>
   </footer>
 </template>
@@ -24,7 +21,6 @@
 export default {
   props: {
     items: {
-      // Mock: api.links
       type: Array,
       default: () => [],
     },

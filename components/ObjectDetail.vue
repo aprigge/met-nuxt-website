@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="object-detail">
-    <div class="header">Object Details</div>
     <div class="meta">
       <h3 class="title" v-html="title" />
       <div class="details">
