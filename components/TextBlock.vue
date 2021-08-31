@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .text-block {
-  margin-top: 75px;
+  margin-top: 55px;
   margin-left: 80px;
   margin-right: 80px;
   text-align: left;
@@ -39,7 +39,6 @@ export default {
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0.01em;
-
     line-height: 32px;
   }
 }

@@ -70,11 +70,7 @@ export default {
   }
 
   .divider-general {
-    width: 100%;
-  }
-
-  .footer {
-    margin-top: 15px;
+    width: 90%;
   }
 }
 </style>
