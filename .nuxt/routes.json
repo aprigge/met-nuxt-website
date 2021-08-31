@@ -6,7 +6,8 @@
     "chunkName": "pages/about",
     "pathToRegexpOptions": {
       "strict": true
-    }
+    },
+    "_name": "_0261c60e"
   },
   {
     "name": "index",
@@ -15,7 +16,8 @@
     "chunkName": "pages/index",
     "pathToRegexpOptions": {
       "strict": true
-    }
+    },
+    "_name": "_1e86f7be"
   },
   {
     "name": "slug",
@@ -24,6 +26,7 @@
     "chunkName": "pages/_slug",
     "pathToRegexpOptions": {
       "strict": true
-    }
+    },
+    "_name": "_1cd05676"
   }
 ]
