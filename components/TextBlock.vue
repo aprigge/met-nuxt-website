@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="title-block">
+  <div class="text-block">
     <div class="title" v-html="title"></div>
     <div class="text" v-html="text"></div>
   </div>
@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title-block {
-  margin-top: 75px;
+.text-block {
+  margin-top: 55px;
   margin-left: 80px;
   margin-right: 80px;
   text-align: left;
@@ -39,7 +39,6 @@ export default {
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0.01em;
-
     line-height: 32px;
   }
 }

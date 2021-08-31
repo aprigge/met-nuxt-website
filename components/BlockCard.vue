@@ -1,24 +1,19 @@
 <template lang="html">
   <div class="block-card">
-    <div class="meta">
-      <object-image
-        class="image"
-        v-if="src"
-        :src="src"
-        :width="500"
-        :height="500"
-      />
-      <div class="details">
-        <nuxt-link class="to" :to="to"
-          ><h3 class="title" v-html="title"
-        /></nuxt-link>
-        <div class="artist" v-html="artistDisplayName" />
-        <div class="department" v-html="department" />
-        <div class="medium" v-html="medium" />
-        <div class="date" v-html="objectDate" />
-        <div v-if="wiki" class="wiki" v-html="wiki" />
-      </div>
-    </div>
+    <object-image
+      class="image"
+      v-if="src"
+      :src="src"
+      :width="500"
+      :height="500"
+    />
+
+    <nuxt-link class="to" :to="to"
+      ><h3 class="title" v-html="title"
+    /></nuxt-link>
+    <div class="artist" v-html="artistDisplayName" />
+    <div class="medium" v-html="medium" />
+    <div class="date" v-html="objectDate" />
   </div>
 </template>
 
@@ -80,49 +75,18 @@ export default {
   max-height: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 10px;
   margin-top: 20px;
+  margin-bottom: 10px;
   border-radius: var(--rounded-slightly-all);
+  background-color: var(--color-primary-lightest-blue);
+  border: 2px solid var(--color-primary-lightest-blue);
 
-  .meta {
-    max-width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: flex-start;
-  }
   .image {
-    width: 50%;
-    padding-right: 15px;
+    margin-top: 15px;
   }
-  .details {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
-    align-items: center;
-
-    width: 50%;
-    height: 500px;
-    background-color: var(--color-primary-lightest-blue);
-    border: 2px solid var(--color-primary-lightest-blue);
-  }
-  .title {
-    font-size: 24px;
-    text-align: center;
-    font-weight: 700;
-    margin-top: 35px;
-    margin-bottom: 10px;
-    color: var(--color-primary-darkest-blue);
-    padding-right: 60px;
-    padding-left: 60px;
-  }
-
   .title {
     font-size: 24px;
     text-align: center;
@@ -138,13 +102,6 @@ export default {
     color: var(--color-gray-03);
     margin-bottom: 10px;
   }
-  .department,
-  .medium {
-    font-size: 18px;
-    color: var(--color-grey-02);
-    margin-bottom: 10px;
-  }
-
   @media #{$has-hover} {
     .title:hover {
       text-decoration: underline;

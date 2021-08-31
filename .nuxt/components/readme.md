@@ -16,4 +16,4 @@ You can directly use them in pages and other components without the need to impo
 - `<PrimaryHeader>` | `<primary-header>` (components/PrimaryHeader.vue)
 - `<SimpleCard>` | `<simple-card>` (components/SimpleCard.vue)
 - `<SmartLink>` | `<smart-link>` (components/SmartLink.vue)
-- `<TitleBlock>` | `<title-block>` (components/TitleBlock.vue)
+- `<TextBlock>` | `<text-block>` (components/TextBlock.vue)

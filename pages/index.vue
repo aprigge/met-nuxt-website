@@ -1,25 +1,29 @@
 <template lang="html">
   <section class="home-page">
-    <primary-header />
     <masthead-secondary title="Objects from the Met Museum's Collection" />
     <div class="block-cards">
       <block-card
         :title="objectHighlight.title"
-        :text="objectHighlight.objectName"
+        :artistDisplayName="objectHighlight.artistDisplayName"
         :objectDate="objectHighlight.objectDate"
-        :department="objectHighlight.department"
-        :medium="objectHighlight.medium"
         :to="parsedTo"
         :src="parsedImage"
       />
       <block-card
         :title="secondObjectHighlight.title"
-        :text="secondObjectHighlight.objectName"
+        :artistDisplayName="secondObjectHighlight.artistDisplayName"
         :objectDate="secondObjectHighlight.objectDate"
         :to="parsedSecondTo"
         :src="secondObjectHighlight.primaryImage"
       />
-      <divider-general />
+      <block-card
+        :title="thirdObjectHighlight.title"
+        :artistDisplayName="thirdObjectHighlight.artistDisplayName"
+        :objectDate="thirdObjectHighlight.objectDate"
+        :to="parsedThirdTo"
+        :src="thirdObjectHighlight.primaryImage"
+      />
+      <divider-general class="divider-general" />
       <json-detail
         title="Because of the Structure of the API, search queries only return a list of ids"
         :response="searchResultsList"
@@ -34,46 +38,30 @@
         />
       </div>
     </div>
-    <divider-general class="divider-general" />
-    <primary-footer class="footer" :items="footerPrimaryItems" />
   </section>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      footerPrimaryItems: [
-        {
-          text: "Met Museum API Documentation",
-          to: "https://metmuseum.github.io/",
-          target: "_blank",
-        },
-        {
-          text: "API Endpoint",
-          to:
-            "https://collectionapi.metmuseum.org/public/collection/v1/objects",
-          target: "_blank",
-        },
-        {
-          text: "Met Museum Collections",
-          to: "https://www.metmuseum.org/art/collection",
-          target: "_blank",
-        },
-      ],
-    };
-  },
   async asyncData({ $axios }) {
     const objectHighlight = await $axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/324290"
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/340070"
     );
     const secondObjectHighlight = await $axios.$get(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/334245"
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/437397"
+    );
+    const thirdObjectHighlight = await $axios.$get(
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/247993"
     );
     const searchResults = await $axios.$get(
       "https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=picasso"
     );
-    return { objectHighlight, secondObjectHighlight, searchResults };
+    return {
+      objectHighlight,
+      secondObjectHighlight,
+      thirdObjectHighlight,
+      searchResults,
+    };
   },
 
   computed: {
@@ -86,8 +74,11 @@ export default {
     parsedTo() {
       return `/${this.objectHighlight.objectID}`;
     },
-    parsedSecondTo(objectID) {
+    parsedSecondTo() {
       return `/${this.secondObjectHighlight.objectID}`;
+    },
+    parsedThirdTo() {
+      return `/${this.thirdObjectHighlight.objectID}`;
     },
     searchResultsList() {
       return this.searchResults.objectIDs.slice(0, 10);
@@ -125,12 +116,9 @@ export default {
     margin-left: var(--unit-gutter);
   }
   .divider-general {
-    width: 100%;
+    width: 90%;
     padding-top: 10px;
     padding-bottom: 10px;
-  }
-  .footer {
-    margin-top: 15px;
   }
 }
 </style>

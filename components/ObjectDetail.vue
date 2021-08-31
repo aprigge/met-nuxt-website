@@ -83,6 +83,9 @@ export default {
     justify-content: center;
     align-content: center;
     align-items: center;
+
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .title {
     font-size: 24px;
@@ -101,9 +104,11 @@ export default {
   }
   .department,
   .medium {
-    font-size: 18px;
+    font-size: 14px;
     color: var(--color-grey-02);
     margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
   .urls {
     margin-top: 50px;

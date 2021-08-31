@@ -1,10 +1,10 @@
-// Storybook default settings
 export default {
-  title: "Block Card",
+  title: "Text Block",
 };
 
 export const Default = () => ({
-  template: `<block-card
+  template: `<text-block
     title="this is a title"
+    text="Some text here"
     />`,
 });
